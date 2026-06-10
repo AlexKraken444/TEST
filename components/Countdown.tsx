@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLang } from "./LanguageProvider";
 
 type Parts = { days: number; hours: number; minutes: number; seconds: number };
 
@@ -14,6 +15,7 @@ function diff(targetMs: number, nowMs: number): Parts {
 }
 
 export default function Countdown({ targetIso }: { targetIso: string }) {
+  const { t } = useLang();
   const targetMs = new Date(targetIso).getTime();
   const [parts, setParts] = useState<Parts | null>(null);
 
@@ -35,20 +37,20 @@ export default function Countdown({ targetIso }: { targetIso: string }) {
     return (
       <div className="glass mx-auto max-w-2xl rounded-2xl px-8 py-10 text-center shadow-glow-lg">
         <p className="text-xl uppercase tracking-[0.4em] text-cyan-200">
-          Игра вышла
+          {t("released")}
         </p>
         <p className="mt-3 text-4xl font-bold text-white glow-text">
-          Играть прямо сейчас
+          {t("playNow")}
         </p>
       </div>
     );
   }
 
   const cells: Array<{ label: string; value: number | null }> = [
-    { label: "Дней", value: parts?.days ?? null },
-    { label: "Часов", value: parts?.hours ?? null },
-    { label: "Минут", value: parts?.minutes ?? null },
-    { label: "Секунд", value: parts?.seconds ?? null },
+    { label: t("days"), value: parts?.days ?? null },
+    { label: t("hours"), value: parts?.hours ?? null },
+    { label: t("minutes"), value: parts?.minutes ?? null },
+    { label: t("seconds"), value: parts?.seconds ?? null },
   ];
 
   return (

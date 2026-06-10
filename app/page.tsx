@@ -1,12 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Countdown from "@/components/Countdown";
 import TrailerEmbed from "@/components/TrailerEmbed";
+import { useLang } from "@/components/LanguageProvider";
 
 // 30 июня 2026, 20:00 МСК (UTC+3) → 17:00 UTC
 const RELEASE_ISO = "2026-06-30T17:00:00Z";
 const TRAILER_ID = "hPT61SNcBrQ";
 
 export default function HomePage() {
+  const { t } = useLang();
+
   return (
     <main className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center px-6 py-12">
       <section className="flex flex-col items-center text-center">
@@ -23,14 +28,15 @@ export default function HomePage() {
         </div>
 
         <p className="mt-4 text-sm uppercase tracking-[0.5em] text-cyan-300/80">
-          Coming soon
+          {t("comingSoon")}
         </p>
 
-        <h1 className="sr-only">TEST — официальный сайт игры</h1>
+        <h1 className="sr-only">{t("srTitle")}</h1>
 
         <p className="mt-6 max-w-2xl text-base sm:text-lg text-cyan-50/80">
-          Релиз — <span className="text-white font-semibold">30 июня, 20:00 МСК</span>.
-          До выхода игры осталось:
+          {t("subtitle")}
+          <span className="text-white font-semibold">{t("subtitleDate")}</span>
+          {t("subtitleTail")}
         </p>
       </section>
 
@@ -42,7 +48,7 @@ export default function HomePage() {
         <div className="mb-5 flex items-center justify-center gap-3">
           <span className="h-px w-12 bg-gradient-to-r from-transparent to-cyan-400/60" />
           <h2 className="text-sm uppercase tracking-[0.4em] text-cyan-200/90">
-            Release date trailer
+            {t("trailerHeader")}
           </h2>
           <span className="h-px w-12 bg-gradient-to-l from-transparent to-cyan-400/60" />
         </div>

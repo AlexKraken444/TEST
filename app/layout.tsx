@@ -1,13 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/components/LanguageProvider";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export const metadata: Metadata = {
-  title: "TEST — Скоро в продаже",
+  title: "TEST — coming soon",
   description:
-    "TEST — официальный сайт игры. Дата выхода: 30 июня в 20:00 МСК. Смотри трейлер и следи за обратным отсчётом.",
+    "TEST — official game site. Release: June 30, 20:00 MSK. Watch the trailer and follow the countdown.",
   openGraph: {
-    title: "TEST — Скоро в продаже",
-    description: "Дата выхода: 30 июня, 20:00 МСК.",
+    title: "TEST — coming soon",
+    description: "Release: June 30, 20:00 MSK.",
     images: ["/logo.png"],
     type: "website",
   },
@@ -29,7 +31,10 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         <div className="starfield" aria-hidden />
-        {children}
+        <LanguageProvider>
+          <LanguageSwitcher />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
