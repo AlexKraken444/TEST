@@ -30,7 +30,7 @@ export default function HomePage() {
 
         <p className="mt-6 max-w-2xl text-base sm:text-lg text-cyan-50/80">
           Релиз — <span className="text-white font-semibold">30 июня, 20:00 МСК</span>.
-          До старта осталось:
+          До выхода игры осталось:
         </p>
       </section>
 
