@@ -48,10 +48,6 @@ export default function HomePage() {
         </div>
         <TrailerEmbed videoId={TRAILER_ID} />
       </section>
-
-      <footer className="mt-20 mb-2 text-center text-xs text-cyan-100/40">
-        <p>© {new Date().getFullYear()} TEST. Все права защищены.</p>
-      </footer>
     </main>
   );
 }
